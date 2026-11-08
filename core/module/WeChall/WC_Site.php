@@ -204,9 +204,10 @@ class WC_Site extends WC_SiteBase
 		return substr($back, 2);
 	}
 
-	public function getLink()
+	public function getLink($nofollow=false)
 	{
-		return GWF_HTML::anchor($this->getURL(), $this->getSitename(), WC_HTML::lang('site_'.$this->getStatus()), 'siteanchor');
+        $rel = $nofollow ? 'nofollow' : '';
+		return GWF_HTML::anchor($this->getURL(), $this->getSitename(), WC_HTML::lang('site_'.$this->getStatus()), 'siteanchor', $rel);
 	}
 
 	/**
